@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat&display=swap');
+:root{
+--sidebar-flex:1.5;
+--condiv-flex:6;
+--fontsize-p:.75rem;
+--fontsize-nav:1.6rem;
+--typing-font:2.3rem;
+}
+* {
+margin:0;
+padding: 0;
+}
+body {
+font-family: 'Courier Prime', monospace;;
+}
+.App {
+display: flex;
+width: 100vw;
+min-height: 100vh;
+}
+nav {
+padding: 20px 10px 0px 10px ;
+flex:var(--sidebar-flex);
+background: rgb(252, 126, 117);
+background: linear-gradient(90deg, rgb(252, 126, 117) 20%, rgb(252, 238, 237) 100%);
+}
+nav ul {
+  font-size:var(--fontsize-nav) ;
+  text-align: center;
+  list-style-type: none; 
+}
+nav ul li {
+  margin:40px;
+}
+nav ul li a {
+  color: rgb(151, 84, 79);
+  text-decoration: none;
+}
+nav ul li:hover {
+  text-decoration: underline;
+}
+.active {
+font-weight: bolder;
+}
+input {
+  margin-left: -400px;
+}
+
+/* .condiv class is for the right side content container*/
+.condiv {
+padding: 100px ;
+background-color: #f4f5f9;
+flex:var(--condiv-flex);
+}
+
+/* styles for Home */
+.home {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(151, 84, 79);
+}
+.profilepic {
+  border-radius: 50%;
+  width: 220px;
+  margin: 0 30px 30px 30px;
+}
+.typingeffect {
+  font-size: var(--typing-font);
+  margin-bottom: 30px;
+}
+
+/* styles for social icons */
+.social {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 26px;
+}
+.social i {
+padding-right: 30px;
+font-size: 25px;
+color: #9a9b9c;
+}
+.social i:hover {
+color: #e4cfcf;
+}
+
+/* styles for About */
+.subtopic {
+margin:10px 10px 30px 10px !important;
+}
+p {
+font-size: var(--fontsize-p);
+font-family: 'Montserrat', sans-serif;
+line-height: 1.5;
+}
+h1,h2,h3,h4,p {
+margin: 10px;
+}
+
+/* styles for education (widecard) */
+.widecard {
+border:0px solid #9a9b9c;
+display: flex;
+margin:30px 0px 30px 0px;
+}
+.widecard:hover {
+color: #1b1d20;
+background-color: #ffffff;
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+/* styles for Projects */
+.project-img {
+  width: 85%;
+  margin-top: 35px;
+}
+.project-img:first-of-type {
+  margin-top: 0;
+}
+.list {
+  margin-left: 42px;
+}
+.listheading {
+  margin-left: 28px;
+  margin-bottom: 2px;
+}
+
+@media all and (max-width: 650px) {
+  :root {
+    --fontsize-nav:1.2rem;
+    --sidebar-flex:0;
+    --typing-font:2rem;
+  }
+  .App
+  {
+    flex-direction: column;
+  }
+  .condiv
+  {
+    padding: 50px ;
+  }
+  nav {
+    background: linear-gradient(180deg, rgb(252, 126, 117) 20%, rgb(252, 238, 237) 90%);  
+  }
+  nav ul
+  {
+    display: flex;
+    justify-content: center;
+  }
+  nav ul li
+  {
+    margin: 10px;
+  }
+  .social
+  {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media all and (max-width: 480px) {
+  nav {
+    padding: 22px 12px 4px 12px;
+    margin: -50px 0 36px -48px;
+  }
+  nav ul {
+    display: block;
+  }
+  nav ul li {
+    margin: 0;
+  }
+  input {
+    margin-left: 12px;
+    margin-top: 12px;
+  }
+  #menuToggle {
+    display: block;
+    position: relative;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  #menuToggle a {
+    text-decoration: none;
+    color: rgb(151, 84, 79);
+    transition: color 0.3s ease;
+  }
+  #menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+  }
+  #menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: rgb(151, 84, 79);
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+  }
+  #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+  }
+  #menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: rgb(151, 84, 79);
+  }
+  #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+  #menu {
+    position: absolute;
+    width: 120px;
+    margin: -110px 0 0 -50px;
+    padding: 0 28px 28px 60px;
+    padding-top: 125px;
+    background: #e9dbdb;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+  #menu li {
+    padding: 10px 0;
+    font-size: 22px;
+  }
+  #menuToggle input:checked ~ ul {
+    transform: none;
+  }
+
+  }
+
+}
+
+
